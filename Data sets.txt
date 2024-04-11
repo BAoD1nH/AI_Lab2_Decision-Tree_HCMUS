@@ -1,0 +1,14 @@
+Train/test
+
+B1: Sort thành các strata
+B2: Tiến hành đi tìm stratum
+sampleSizeStratum = sampleSize * stratumSize / populationSize
+B3: Tiến hành SRS (Simple Randomly Sampling)
+
+1. 40/60
+
+2. 60/40
+
+3. 80/20
+
+4. 90/10
