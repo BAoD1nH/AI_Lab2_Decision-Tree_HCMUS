@@ -76,7 +76,7 @@ for ratio in ratioList:
                             special_characters=True)  
 
     graph = pydotplus.graph_from_dot_data(dot_data)
-    graph.write_png("decision_tree.png")
+    graph.write_png(f"decision_tree_ratio_{ratio[0]}_{ratio[1]}.png")
 
     #Step 3: Evaluating the decision tree classifiers
     # Predict on the test set
@@ -108,7 +108,7 @@ for ratio in ratioList:
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-    plt.show()
+    plt.savefig(f'confusion_matrix_ratio_{ratio[0]}_{ratio[1]}.png', bbox_inches='tight')
 
 #Step 4: The depth and accuracy of a decision tree (80/20)
 
