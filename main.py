@@ -54,24 +54,15 @@ for ratio in ratioList:
 
 
     #Step 2: Building the decision tree classifiers
-    treeClassifier = DecisionTreeClassifier(criterion='entropy', max_depth=None, random_state=50)
+    treeClassifier = DecisionTreeClassifier(criterion='entropy')
 
-    # Label encoding for categorical variables
-    label_encoders = {}
-    X_train_encoded = X_train.copy()
-    X_test_encoded = X_test.copy()
-    for col in columns[:-1]:  # Exclude the target variable
-        le = LabelEncoder()
-        X_train_encoded[col] = le.fit_transform(X_train[col])
-        X_test_encoded[col] = le.transform(X_test[col])
-        label_encoders[col] = le
-
-    treeClassifier.fit(X_train_encoded, y_train)
-
+    featureTrain = pd.get_dummies(X_train)
+    treeClassifier.fit(featureTrain, y_train)
+    
     # Visualize the decision tree
     dot_data = export_graphviz(treeClassifier, out_file=None, 
-                            feature_names=columns[:-1],  
-                            class_names=y_train.unique(),  
+                            feature_names=featureTrain.columns,  
+                            class_names=treeClassifier.classes_,  
                             filled=True, rounded=True,  
                             special_characters=True)  
 
@@ -80,6 +71,7 @@ for ratio in ratioList:
 
     #Step 3: Evaluating the decision tree classifiers
     # Predict on the test set
+    X_test_encoded = pd.get_dummies(X_test)
     y_pred = treeClassifier.predict(X_test_encoded)
 
     # classification_report

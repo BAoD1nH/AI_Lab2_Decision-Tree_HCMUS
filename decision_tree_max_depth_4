@@ -1,0 +1,37 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<health &le; 0.5<br/>entropy = 1.717<br/>samples = 10368<br/>value = [3456, 3413, 2, 3235, 262]<br/>class = not_recom>, fillcolor="#fffefe"] ;
+1 [label=<entropy = 0.0<br/>samples = 3456<br/>value = [3456, 0, 0, 0, 0]<br/>class = not_recom>, fillcolor="#e58139"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<has_nurs &le; 3.5<br/>entropy = 1.198<br/>samples = 6912<br/>value = [0, 3413, 2, 3235, 262]<br/>class = spec_prior>, fillcolor="#f9fef5"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label=<has_nurs &le; 1.5<br/>entropy = 1.195<br/>samples = 5515<br/>value = [0, 3239, 2, 2012, 262]<br/>class = spec_prior>, fillcolor="#d1f6ba"] ;
+2 -> 3 ;
+4 [label=<parents &le; 1.5<br/>entropy = 1.095<br/>samples = 2745<br/>value = [0, 1077, 0, 1612, 56]<br/>class = very_recom>, fillcolor="#c0bff7"] ;
+3 -> 4 ;
+5 [label=<entropy = 0.777<br/>samples = 1825<br/>value = [0, 419, 0, 1406, 0]<br/>class = very_recom>, fillcolor="#7674ed"] ;
+4 -> 5 ;
+6 [label=<entropy = 1.075<br/>samples = 920<br/>value = [0, 658, 0, 206, 56]<br/>class = spec_prior>, fillcolor="#abef82"] ;
+4 -> 6 ;
+7 [label=<parents &le; 0.5<br/>entropy = 0.969<br/>samples = 2770<br/>value = [0, 2162, 2, 400, 206]<br/>class = spec_prior>, fillcolor="#9dec6c"] ;
+3 -> 7 ;
+8 [label=<entropy = 0.99<br/>samples = 907<br/>value = [0, 507, 0, 400, 0]<br/>class = spec_prior>, fillcolor="#e3fad5"] ;
+7 -> 8 ;
+9 [label=<entropy = 0.514<br/>samples = 1863<br/>value = [0, 1655, 2, 0, 206]<br/>class = spec_prior>, fillcolor="#8ce852"] ;
+7 -> 9 ;
+10 [label=<health &le; 1.5<br/>entropy = 0.542<br/>samples = 1397<br/>value = [0, 174, 0, 1223, 0]<br/>class = very_recom>, fillcolor="#5855e9"] ;
+2 -> 10 ;
+11 [label=<children &le; 0.5<br/>entropy = 0.082<br/>samples = 688<br/>value = [0.0, 7.0, 0.0, 681.0, 0.0]<br/>class = very_recom>, fillcolor="#3e3be5"] ;
+10 -> 11 ;
+12 [label=<entropy = 0.251<br/>samples = 167<br/>value = [0, 7, 0, 160, 0]<br/>class = very_recom>, fillcolor="#4542e6"] ;
+11 -> 12 ;
+13 [label=<entropy = 0.0<br/>samples = 521<br/>value = [0, 0, 0, 521, 0]<br/>class = very_recom>, fillcolor="#3c39e5"] ;
+11 -> 13 ;
+14 [label=<housing &le; 0.5<br/>entropy = 0.788<br/>samples = 709<br/>value = [0, 167, 0, 542, 0]<br/>class = very_recom>, fillcolor="#7876ed"] ;
+10 -> 14 ;
+15 [label=<entropy = 0.992<br/>samples = 243<br/>value = [0, 109, 0, 134, 0]<br/>class = very_recom>, fillcolor="#dbdafa"] ;
+14 -> 15 ;
+16 [label=<entropy = 0.542<br/>samples = 466<br/>value = [0, 58, 0, 408, 0]<br/>class = very_recom>, fillcolor="#5855e9"] ;
+14 -> 16 ;
+}
